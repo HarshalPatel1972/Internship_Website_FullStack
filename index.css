@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Smooth transition for dark mode */
+html,
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark mode styles */
+.dark .bg-gradient-to-r {
+  background-image: linear-gradient(
+    to right,
+    #1f2937,
+    #111827
+  ); /* Dark mode gradient */
+}
+
+.dark .bg-gradient-to-b {
+  background-image: linear-gradient(
+    to bottom,
+    #1f2937,
+    #111827
+  ); /* Dark mode gradient */
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark p,
+.dark a {
+  color: #e5e7eb; /* Lighter text color for dark mode */
+}
+
+.dark .bg-gray-800 {
+  background-color: #1f2937;
+}
+
+.dark .text-gray-300 {
+  color: #d1d5db;
+}
+
+.dark .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4),
+    0 4px 6px -2px rgba(0, 0, 0, 0.4);
+}
+
+.dark .bg-blue-500 {
+  background-color: #3b82f6;
+}
+
+/* Fancy Animations */
+
+/* Text Fade In */
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 1s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out;
+}
+
+/* Subscribe Button Bounce */
+@keyframes bounce-in {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 1.5s infinite;
+}
+
+/* Gradient Text */
+.bg-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Responsive Design Fixes */
+
+/* Ensure that container widths adapt correctly to smaller screen sizes */
+.container {
+  max-width: 100%;
+  padding: 0 20px; /* Ensure that content has spacing on smaller screens */
+  margin: 0 auto;
+}
+
+/* Fix grid layout issues */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 768px) {
+  .text-6xl {
+    font-size: 2.5rem; /* Adjust large titles for mobile */
+  }
+
+  .text-5xl {
+    font-size: 2rem;
+  }
+
+  .text-4xl {
+    font-size: 1.75rem;
+  }
+
+  .p-6 {
+    padding: 1.5rem; /* Adjust padding for mobile */
+  }
+
+  .max-w-7xl {
+    max-width: 100%; /* Make sure the container doesn't overflow */
+  }
+
+  .article-card,
+  .podcast-card,
+  .video-card {
+    padding: 1.25rem; /* Reduce padding for smaller screens */
+  }
+
+  /* Navbar tweaks */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li {
+    margin-bottom: 1rem;
+  }
+
+  nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Media queries for tablets */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .p-6 {
+    padding: 1.75rem;
+  }
+}
+
+/* Mobile phone fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display:wght@700&display=swap");
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+/* .font-montserrat {
+  font-family: "Montserrat", sans-serif;
+} */
+
+/* Mobile-specific font sizing */
+h1.font-playfair {
+  font-size: 64px; /* Desktop size */
+}
+
+h1.font-montserrat {
+  font-size: 80px; /* Desktop size */
+}
+
+@media (max-width: 768px) {
+  h1.font-playfair {
+    font-size: 32px; /* Mobile size */
+  }
+
+  h1.font-montserrat {
+    font-size: 64px; /* Mobile size */
+  }
+}
+
+h1.font-playfair {
+  font-family: "Playfair Display", serif;
+  font-size: 48px; /* For desktop */
+}
+
+@media (max-width: 768px) {
+  h1.font-playfair {
+    font-size: 32px; /* For mobile */
+  }
+}
+
+/* Background blur */
+.blur-text {
+  position: absolute;
+  font-size: 8rem;
+  color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  text-align: center;
+  font-weight: bold;
+  filter: blur(10px);
+  white-space: pre-wrap; /* Allow text to wrap */
+  word-wrap: break-word; /* Break words that are too long */
+  max-width: 90%; /* Limit the width to ensure text doesn't go off screen */
+  transition: opacity 0.5s ease;
+  overflow-wrap: break-word; /* Ensure long words break */
+  line-height: 1.2; /* Adjust line height to keep text more compact */
+}
+
+/* sitara effect */
+
+#sitara-text {
+  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(45deg, #89f7fe, #66a6ff);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 3px rgba(102, 166, 255, 0.3);
+  transition: color 0.5s ease;
+}
+
+#sitara-text:hover {
+  color: black;
+}
+
+.floating-navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+}
+
+.floating-navbar a,
+.floating-navbar button {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.floating-navbar a:hover,
+.floating-navbar button:hover {
+  color: #007bff;
+}
+
+.floating-navbar .icon {
+  font-size: 20px; /* Ensure icons are small enough for mobile */
+}
+
+/* Adjustments for Mobile */
+@media (max-width: 768px) {
+  .floating-navbar {
+    padding: 8px 10px;
+    width: 90%; /* Make sure the navbar fits the screen on mobile */
+  }
+
+  .floating-navbar a,
+  .floating-navbar button {
+    padding: 6px;
+  }
+
+  .floating-navbar .icon {
+    font-size: 18px; /* Slightly smaller icons for mobile */
+  }
+}
+/* Top Navbar - Mobile adjustments */
+nav {
+  font-size: 0.9rem;
+  padding: 10px;
+}
+
+nav img {
+  width: 40px;
+  height: 40px;
+}
+
+nav button {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  nav img {
+    width: 36px; /* Smaller Sitara logo */
+    height: 36px;
+  }
+
+  #sitara-text {
+    font-size: 1.8rem; /* Reduce the font size for mobile */
+  }
+
+  .dark-mode-toggle {
+    font-size: 1.2rem; /* Smaller dark mode toggle for mobile */
+  }
+}
+
+/* mobile subs */
+@media (max-width: 768px) {
+  .text-4xl {
+    font-size: 1.75rem; /* Adjust large title text for smaller screens */
+  }
+
+  .btn {
+    font-size: 0.85rem; /* Adjust button font size */
+    padding: 0.6rem 1.2rem; /* Adjust button padding for mobile */
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+  }
+
+  .card {
+    margin-bottom: 1.5rem; /* Add space between stacked cards */
+  }
+}
